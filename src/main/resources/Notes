@@ -126,3 +126,33 @@ What is the Quickest way to narrow down to get to that one ?
 Ans - The way is to cut the array in half and see if the one is in the first half or the second half.
 
 Note - O(log N) is efficient than O(N) and O(N^2) but not O(1)
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+6) Big O ArrayList
+
+11 	3 	23 	7
+0  	1 	2  	3
+
+myList.add(17) // O(1)
+
+11 	3 	23 	7	17
+0  	1 	2  	3	4
+
+For array operations example myList.add(0, element) or myList.remove(0) then it's O(N) as we have to re-index everything.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+Summary
+
+O(N^2) - Loop within loop
+O(N) - Proportional
+O(log N) - Divide and Conquer
+O(1) - Constant
+
+-----------------------------------------------------------------------
+
+ArrayList										LinkedList
+
+Indexes are present 							Indexes are not present 
+Contiguous Memory								Spread out in memory
