@@ -1,0 +1,128 @@
+Big O - It is a way of comparing code one and code two mathematically about how efficient they run.
+
+Example
+
+Let's run the code and it took below time
+
+Code1 : 15 seconds	Code2: 60 seconds
+
+Code 1 is better than Code 2 (You can measure it) - This is called time complexity.
+
+Time complexity is not measured in time. It is measured in the number of operations that it takes to complete something.
+
+Code1 : Lot memory	Code2: less memory
+
+Space Complexity - Preserving space is more priority then code 2 is better than code 1.
+
+[1]		[2]		[3]		[4]		[5]		[6]		[7]
+ ^			 			 ^			 			 ^
+ Best case	 			 Average case 			 Worst case
+ Omega					 Theta					 Omricon or Big O
+ 
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 
+ 1) O(N) - 
+ 
+public static void printItems(int n) {
+		for (int i = 0; i < n; i++) {
+			System.out.println(i);
+		}
+	}
+
+	public static void main(String[] args) {
+		printIntems(10);
+	}
+	
+--------------------------------------------------------------
+	
+	public static void printItems(int n) {
+		//n
+		for (int i = 0; i < n; i++) {
+			System.out.println(i);
+		}
+		
+		//n
+		for (int i = 0; i < n; i++) {
+			System.out.println(i);
+		}
+	}
+
+	public static void main(String[] args) {
+		printIntems(10);
+	}
+	
+N + N = 2N, we drop constant so we call it - O(N)
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+2) O(N^2) - 
+
+public static void printItems(int n) {
+		//n
+		for (int i = 0; i < n; i++) {
+			//n
+			for (int j = 0; j < n; j++) {
+				System.out.println(i + " " + j);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		printIntems(10);
+	}
+
+N * N - N^2 - O(N^2)
+
+Note - O(N) is more efficient than O(N^2).
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+3) Drop Non-Dominants
+
+public static void printItems(int n) {
+		//n
+		for (int i = 0; i < n; i++) {
+			//n
+			for (int j = 0; j < n; j++) {
+				System.out.println(i + " " + j);
+			}
+		}
+
+		//n
+		for (int k = 0; k < n; k++) {
+			System.out.println(k);
+		}
+	}
+
+O(N^2) + O(N) - O(N^2 + N) - As N gets larger the N^2 grows much faster than the n.
+Note - N^2 is the dominant term and the N is the non-dominant term. Then N becomes irrelevant if it grows larger and larger.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+4) O(1) - If only one operation is performed
+
+//N grows then the number of operations will stay the same.
+public static void addItems(int n) {
+		System.out.println(n + n);
+	}
+
+--------------------------------------------------------------------
+
+public static void addItems(int n) {
+		System.out.println(n + n + n);
+	}
+	
+Note - It is the most efficient Big O, this means O(1) is better than O(N) and O(N^2)
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+5) O(log N) - 
+
+[1]		[2]		[3]		[4]		[5]		[6]		[7]		[8]
+
+We'll say we're going to look for the number one
+
+What is the Quickest way to narrow down to get to that one ?
+Ans - The way is to cut the array in half and see if the one is in the first half or the second half.
+
+Note - O(log N) is efficient than O(N) and O(N^2) but not O(1)
