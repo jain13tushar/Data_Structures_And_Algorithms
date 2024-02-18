@@ -86,7 +86,7 @@ public class LinkedList {
 	}
 
 	public boolean insert(int index, int value) {
-		if (index < 0 || index >= length) {
+		if (index < 0 || index > length) {
 			return false;
 		}
 
@@ -156,6 +156,38 @@ public class LinkedList {
 				temp = temp.next;
 			}
 			return temp;
+		}
+	}
+
+	public Node remove(int index) {
+		if (index < 0 || index >= length) {
+			return null;
+		}
+		if (length == 0) {
+			return removeFirst();
+		}
+		if (index == length) {
+			return removeEnd();
+		}
+		Node prev = get(index - 1);
+		Node temp = prev.next;
+		prev.next = temp.next;
+		temp.next = null;
+		length--;
+		return temp;
+	}
+
+	public void reverse() {
+		Node temp = head;
+		head = tail;
+		tail = temp;
+		Node after = temp.next;
+		Node before = null;
+		for (int i = 0; i < length; i++) {
+			after = temp.next;
+			temp.next = before;
+			before = temp;
+			temp = after;
 		}
 	}
 
